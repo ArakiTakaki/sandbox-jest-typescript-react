@@ -41,6 +41,8 @@
     - node-sass
 - plugins
   - html-webpack-plugin
+  - webpack-obfuscator
+    - JavaScriptを暗号化させる
 
 ## other library
 
@@ -52,3 +54,5 @@
   - 日付の拡張ライブラリ
 - cross-env
   - terminal実行時の引数を追加するライブラリ
+- reset-css
+  - CSSのリセットライブラリ(SASS対応)
