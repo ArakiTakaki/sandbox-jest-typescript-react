@@ -9,3 +9,5 @@
 ## [Linter](https://github.com/ArakiTakaki/sandbox-jest-typescript-react/blob/master/notes/tslint.md)
 
 ## [Webpackのまとめ](https://github.com/ArakiTakaki/sandbox-jest-typescript-react/blob/master/notes/webpack.md)
+
+## [学習まとめ](https://github.com/ArakiTakaki/sandbox-jest-typescript-react/tree/master/notes/study)
