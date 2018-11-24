@@ -20,6 +20,9 @@
 ## Debug
 
 - ts-jest
+- react-test-renderer
+  - スナップショットをする際に必要なライブラリ
+  - [JEST スナップショット機能を使用してみた](http://shibe97.hatenablog.com/entry/2017/03/22/092237)
 
 ## Webpack
 
@@ -42,7 +45,7 @@
 - plugins
   - html-webpack-plugin
   - webpack-obfuscator
-    - JavaScriptを暗号化させる
+    - JavaScript を暗号化させる
 
 ## other library
 
@@ -53,6 +56,6 @@
 - moment
   - 日付の拡張ライブラリ
 - cross-env
-  - terminal実行時の引数を追加するライブラリ
+  - terminal 実行時の引数を追加するライブラリ
 - reset-css
-  - CSSのリセットライブラリ(SASS対応)
+  - CSS のリセットライブラリ(SASS 対応)

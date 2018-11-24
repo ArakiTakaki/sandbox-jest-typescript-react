@@ -1,5 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import "../sass/base.sass";
+import React from "react";
+import ReactDOM from "react-dom";
+import Index from "./pages/index";
+import "../sass/base";
 
-ReactDOM.render(<h1>test</h1>, document.getElementById('app'));
+ReactDOM.render(<Index />, document.getElementById("app"));

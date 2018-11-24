@@ -13,10 +13,22 @@
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
-    "jsx": "react" //追記必須
+    "jsx": "react",
+    "experimentalDecorators": true
   }
 }
 ```
+
+experimentalDecorators
+
+いわゆる@functionでwrapできるようにするやつ `export default hot(SampleClass)`的なやつを
+
+```ts
+@hot
+class SampleClass {}
+```
+
+という形で記述できるようにする。
 
 ## tslint.json の設定
 
