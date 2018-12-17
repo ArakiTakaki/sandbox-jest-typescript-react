@@ -1,5 +1,5 @@
 export const fetchData = (callback: Function) => {
   setTimeout(() => {
-    callback("callback");
+    callback('callback');
   }, 1000);
 };

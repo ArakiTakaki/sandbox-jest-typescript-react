@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from "react";
+import React, { ChangeEventHandler } from 'react';
 
 interface Props {
   value: string;
@@ -10,7 +10,7 @@ const TextArea = (props: Props) => {
   return (
     <div>
       InputType:{children}
-      <input type="text" value={value} onChange={eventChange} />
+      <input type='text' value={value} onChange={eventChange} />
     </div>
   );
 };

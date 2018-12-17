@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 const STATUS = {
-  HOVERED: "hovered",
-  NORMAL: "normal"
+  HOVERED: 'hovered',
+  NORMAL: 'normal'
 };
 
 interface Props {
@@ -36,7 +36,7 @@ class Link extends React.Component<Props, State> {
     return (
       <a
         className={this.state.class}
-        href={this.props.page || "#"}
+        href={this.props.page || '#'}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
       >

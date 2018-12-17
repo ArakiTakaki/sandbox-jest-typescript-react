@@ -1,4 +1,4 @@
-import { sum } from "../../util/sum";
+import { sum } from '../../util/sum';
 
 let i = 10;
 
@@ -10,12 +10,12 @@ afterEach(() => {
   i = 10;
 });
 
-test("BeforAfterTest", () => {
+test('BeforAfterTest', () => {
   i = sum(i, 10);
   expect(sum(i, 10)).toBe(40);
 });
 
-test("BeforAfterTest", () => {
+test('BeforAfterTest', () => {
   // beforEachが呼ばれるためiが20になるので30が正解
   expect(sum(i, 10)).toBe(30);
 });
@@ -24,4 +24,3 @@ test("BeforAfterTest", () => {
 // test("BeforAfterTest", () => {
 //   expect(sum(i, 10)).toBe(20);
 // });
-

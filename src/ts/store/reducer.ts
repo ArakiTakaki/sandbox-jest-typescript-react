@@ -1,5 +1,5 @@
-import * as Actions from "./actions";
-import { stateType, init } from "./initialState";
+import * as Actions from './actions';
+import { stateType, init } from './initialState';
 
 const { ActionTypes } = Actions;
 const reducer = (

@@ -11,11 +11,11 @@ export type stateType = {
 };
 export const init = (): stateType => ({
   count: 0,
-  name: "GUEST",
+  name: 'GUEST',
   todos: [
     {
       id: 0,
-      name: "sample todo",
+      name: 'sample todo',
       check: false
     }
   ]
