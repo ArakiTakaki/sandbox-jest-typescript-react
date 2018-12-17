@@ -9,8 +9,8 @@ const TextArea = (props: Props) => {
   const { value, eventChange, children } = props;
   return (
     <div>
-      {children}
-      <input type="text" value={value} onChange={eventChange} />;
+      InputType:{children}
+      <input type="text" value={value} onChange={eventChange} />
     </div>
   );
 };
