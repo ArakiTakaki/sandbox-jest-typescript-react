@@ -1,22 +1,17 @@
-interface todo {
-  id: number;
-  name: string;
-  check: boolean;
-}
-
-export type stateType = {
+import { Todo } from './model';
+export type StateType = {
   count: number;
   name: string;
-  todos: todo[];
+  todo_list: Todo[];
 };
-export const init = (): stateType => ({
+export const initialState: StateType = {
   count: 0,
   name: 'GUEST',
-  todos: [
+  todo_list: [
     {
       id: 0,
       name: 'sample todo',
-      check: false
-    }
-  ]
-});
+      completed: false,
+    },
+  ],
+};

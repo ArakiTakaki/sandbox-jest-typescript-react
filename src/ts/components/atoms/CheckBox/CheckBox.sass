@@ -1,0 +1,18 @@
+
+.checkbox
+    display: none
+    & + .icon:after
+        margin: 1rem
+        padding: .2rem
+        transition: 100ms ease-out
+        content: '✓'
+        border: 1px solid #555
+        border-radius: 50%
+        color: rgba(0, 0, 0, 0)
+        font-size: 1.2rem
+        cursor: pointer
+
+    &:checked + .icon:after
+        content: '✓'
+        color: rgba(255, 255, 255, 1)
+        background-color: #66CC99
