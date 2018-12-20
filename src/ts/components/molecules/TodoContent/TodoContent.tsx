@@ -1,8 +1,8 @@
 import React from 'react';
 import InputText from '../../atoms/InputText/InputText';
-import CheckBox from '~/components/atoms/CheckBox/CheckBox';
-import CrossButton from '~/components/atoms/CrossButton/CrossButton';
-const styles = require('./TodoContent.sass');
+import CheckBox from '../../atoms/CheckBox/CheckBox';
+import CrossButton from '../../atoms/CrossButton/CrossButton';
+import styles from './style';
 
 interface Props {
   children: string;
@@ -22,7 +22,7 @@ const TodoContent = (props: Props) => {
         {false ? (
           <p className={styles.typography}>{props.children}</p>
         ) : (
-          <InputText defaultValue={props.children} onBlur={props.onBlur} dataID={props.dataID} error />
+          <InputText defaultValue={props.children} onBlur={props.onBlur} dataID={props.dataID} />
         )}
       </div>
       <CrossButton onClick={props.onDelete} value={props.value} />

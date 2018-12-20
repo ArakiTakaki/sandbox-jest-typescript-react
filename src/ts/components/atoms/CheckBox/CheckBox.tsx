@@ -1,5 +1,5 @@
 import React from 'react';
-const styles = require('./CheckBox.sass');
+import styles from './style.sass';
 
 interface Props {
   label?: string;
@@ -12,7 +12,7 @@ const CheckBox = (props: Props) => {
     <div>
       <label>
         <input
-          type='checkbox'
+          type={'checkbox'}
           className={styles.checkbox}
           checked={props.checked}
           onClick={props.onCheck}

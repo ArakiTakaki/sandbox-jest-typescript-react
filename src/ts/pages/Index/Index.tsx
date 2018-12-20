@@ -1,21 +1,22 @@
-import React, { ChangeEvent, MouseEvent, KeyboardEvent } from 'react';
+import React, { ChangeEvent, MouseEvent } from 'react';
+import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { StateType } from '~/store/initialState';
+import { StateType } from '../../store/initialState';
 import { hot } from 'react-hot-loader';
-import IndexTemplate from '~/components/templates/IndexTemplate/IndexTemplate';
-import { todoAddAmount, todoEditAmount, todoDeleteAmount } from '~/store/actions';
-import { Todo } from '~/store/model';
+import IndexTemplate from '../../components/templates/IndexTemplate/IndexTemplate';
+import { todoAddAmount, todoEditAmount, todoDeleteAmount } from '../../store/actions';
+import { Todo } from '../../store/model';
 
 interface Props {
   store: StateType;
-  dispatch: Function;
+  dispatch: Dispatch;
 }
 interface State {
   inputTodo: string;
 }
 @hot(module)
 class Index extends React.Component<Props, State> {
-  todoID: number = 1;
+  private todoID: number = 1;
   constructor(props: Props) {
     super(props);
     this.state = { inputTodo: '' };
@@ -24,6 +25,22 @@ class Index extends React.Component<Props, State> {
     this.changeTodoContent = this.changeTodoContent.bind(this);
     this.deleteTodoEvent = this.deleteTodoEvent.bind(this);
     this.changeTodoCompleted = this.changeTodoCompleted.bind(this);
+  }
+  public render() {
+    const { store, dispatch } = this.props;
+    return (
+      <div>
+        <IndexTemplate
+          inputTodo={this.state.inputTodo}
+          onChangeInput={this.clickToMapping}
+          todoList={store.todo_list}
+          addTodoEvent={this.addTodoEvent}
+          onDeleteTodo={this.deleteTodoEvent}
+          onBlur={this.changeTodoContent}
+          onCompleted={this.changeTodoCompleted}
+        />
+      </div>
+    );
   }
 
   private clickToMapping(event: ChangeEvent<HTMLInputElement>) {
@@ -34,7 +51,7 @@ class Index extends React.Component<Props, State> {
     if (this.state.inputTodo === '') return;
     const { dispatch } = this.props;
     const todoModel: Todo = {
-      id: this.todoID++,
+      id: this.todoID + 1,
       name: this.state.inputTodo,
       completed: false,
     };
@@ -70,23 +87,6 @@ class Index extends React.Component<Props, State> {
     const idx = Number(event.currentTarget.value);
     const deleteTodo: Todo = this.props.store.todo_list[idx];
     this.props.dispatch(todoDeleteAmount(deleteTodo));
-  }
-
-  public render() {
-    const { store, dispatch } = this.props;
-    return (
-      <div>
-        <IndexTemplate
-          inputTodo={this.state.inputTodo}
-          onChangeInput={this.clickToMapping}
-          todoList={store.todo_list}
-          addTodoEvent={this.addTodoEvent}
-          onDeleteTodo={this.deleteTodoEvent}
-          onBlur={this.changeTodoContent}
-          onCompleted={this.changeTodoCompleted}
-        />
-      </div>
-    );
   }
 }
 

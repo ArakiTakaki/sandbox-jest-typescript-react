@@ -1,9 +1,9 @@
 import React from 'react';
-import { Todo } from '~/store/model';
-import TodoContent from '~/components/molecules/TodoContent/TodoContent';
+import { Todo } from '../../../store/model';
+import TodoContent from '../../molecules/TodoContent/TodoContent';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import styles from './style';
 
-const styles = require('./TodoList.sass');
 interface Props {
   todoList: Todo[];
   onDeleteTodo: React.MouseEventHandler;
@@ -17,16 +17,8 @@ class TodoList extends React.Component<Props, State> {
     this.state = {};
     this.onChange = this.onChange.bind(this);
   }
-  private onChange(event: React.FocusEvent<HTMLInputElement>) {
-    const {
-      value,
-      dataset: { id },
-    } = event.currentTarget;
-    if (id == null) return;
-    this.setState({ [id]: value });
-  }
 
-  render() {
+  public render() {
     const { todoList, onDeleteTodo, onBlur, onCompleted } = this.props;
     return (
       <div className={styles.root}>
@@ -49,6 +41,15 @@ class TodoList extends React.Component<Props, State> {
         </TransitionGroup>
       </div>
     );
+  }
+
+  private onChange(event: React.FocusEvent<HTMLInputElement>) {
+    const {
+      value,
+      dataset: { id },
+    } = event.currentTarget;
+    if (id == null) return;
+    this.setState({ [id]: value });
   }
 }
 

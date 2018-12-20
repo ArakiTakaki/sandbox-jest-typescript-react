@@ -27,6 +27,8 @@
     "react-transition-group": "^2.5.1",
     "redux": "^4.0.1",
     "redux-saga": "^0.16.2",
+    "redux-logger": "^3.0.6",
+    "react-hot-loader": "^4.3.12",
     "reset-css": "^4.0.1"
   },
   "devDependencies": {
@@ -60,9 +62,7 @@
     "prettier": "^1.15.2",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
-    "react-hot-loader": "^4.3.12",
     "react-test-renderer": "^16.7.0",
-    "redux-logger": "^3.0.6",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "ts-jest": "^23.10.5",

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-
-const styles = require('./InputText.sass');
+import styles from './style';
 
 interface Props {
   label?: string;
@@ -25,7 +24,7 @@ const InputText = (props: Props) => {
       <label>
         {props.label}
         <input
-          type='text'
+          type={'text'}
           disabled={props.disabled}
           className={input}
           defaultValue={props.defaultValue}

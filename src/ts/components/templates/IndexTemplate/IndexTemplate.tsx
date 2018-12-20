@@ -1,7 +1,8 @@
 import React from 'react';
-import { Todo } from '~/store/model';
-import TodoList from '~/components/organisms/TodoList/TodoList';
-import TodoInput from '~/components/organisms/TodoInput/TodoInput';
+import { Todo } from '../../../store/model';
+import TodoList from '../../organisms/TodoList/TodoList';
+import TodoInput from '../../organisms/TodoInput/TodoInput';
+// import styles from './style';
 
 interface Props {
   onChangeInput: React.FormEventHandler;
@@ -17,8 +18,7 @@ class IndexTemplate extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
   }
-  render() {
-    //
+  public render() {
     const { todoList, inputTodo, onChangeInput, addTodoEvent, onBlur, onCompleted, onDeleteTodo } = this.props;
     return (
       <div>

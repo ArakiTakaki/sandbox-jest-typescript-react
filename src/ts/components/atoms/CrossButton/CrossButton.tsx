@@ -1,6 +1,5 @@
 import React from 'react';
-
-const styles = require('./CrossButton.sass');
+import styles from './styles';
 
 interface Props {
   onClick?: React.MouseEventHandler;
@@ -10,7 +9,7 @@ const CrossButton = (props: Props) => {
   return (
     <div>
       <label>
-        <input value={props.value} type='button' className={styles.cross} onClick={props.onClick} />
+        <button value={props.value} className={styles.cross} onClick={props.onClick} />
         <div className={styles.icon} />
       </label>
     </div>

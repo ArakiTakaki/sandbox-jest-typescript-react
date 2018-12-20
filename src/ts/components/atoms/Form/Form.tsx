@@ -1,6 +1,5 @@
 import React from 'react';
-
-// const styles = require('./Form.sass');
+// import style from './style';
 
 interface Props {
   children: any;

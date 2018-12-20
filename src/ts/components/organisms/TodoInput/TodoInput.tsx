@@ -1,8 +1,7 @@
 import React, { FormEventHandler, MouseEventHandler } from 'react';
-import InputText from '~/components/atoms/InputText/InputText';
-import Button from '~/components/atoms/Button/Button';
-
-const styles = require('./TodoInput.sass');
+import InputText from '../../atoms/InputText/InputText';
+import Button from '../../atoms/Button/Button';
+import styles from './style';
 
 interface Props {
   onChangeInput: FormEventHandler;

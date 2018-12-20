@@ -1,6 +1,5 @@
 import React from 'react';
-
-const styles = require('./Button.sass');
+import styles from './style';
 
 interface Props {
   children: any;

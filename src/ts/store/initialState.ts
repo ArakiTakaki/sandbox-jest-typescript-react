@@ -1,9 +1,9 @@
 import { Todo } from './model';
-export type StateType = {
+export interface StateType {
   count: number;
   name: string;
   todo_list: Todo[];
-};
+}
 export const initialState: StateType = {
   count: 0,
   name: 'GUEST',
