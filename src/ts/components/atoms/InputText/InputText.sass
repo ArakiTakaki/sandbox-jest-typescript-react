@@ -14,19 +14,28 @@
 
 // 追加要素
 .input
+    width: 100%
     & + .border
         display: block
-        transition: 300ms
+        transition: 200ms
         transition-timing-function: ease-out
-        transition-property: outline-color
+        transition-property: outline-color, transform
         width: 100%
+        transform: scaleX(0)
+        opacity: 0
         outline: solid rgba(#000, 0) 1px
 
     &:hover + .border
         outline-color: rgba(20, 20, 20, 0.8)
+        transform: scaleX(1)
+        opacity: 1
 
     &:focus + .border
+        width: 100%
+        transform: scaleX(1)
         outline-color: rgba(#6666CC, 0.8)
+        opacity: 1
+
 
 .error
     color: red

@@ -51,7 +51,7 @@ class Index extends React.Component<Props, State> {
     if (id == null) return;
     const prevState = this.props.store.todo_list[Number(id)];
     const editTodo: Todo = {
-      id: Number(id),
+      id: prevState.id,
       name: event.currentTarget.value,
       completed: prevState.completed
     };
@@ -63,7 +63,7 @@ class Index extends React.Component<Props, State> {
     if (value == null) return;
     const prevState = this.props.store.todo_list[Number(value)];
     const editTodo: Todo = {
-      id: Number(value),
+      id: prevState.id,
       name: prevState.name,
       completed: !prevState.completed
     };

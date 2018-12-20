@@ -1,6 +1,7 @@
 import React from 'react';
 import { Todo } from '~/store/model';
 import TodoContent from '~/components/molecules/TodoContent/TodoContent';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const styles = require('./TodoList.sass');
 interface Props {
@@ -19,20 +20,24 @@ class TodoList extends React.Component<Props, State> {
     const { todoList, onDeleteTodo, onBlur, onCompleted } = this.props;
     return (
       <div className={styles.root}>
-        {todoList.map((todo: Todo, idx: number) => (
-          <div className={styles.todo} key={idx}>
-            <TodoContent
-              checked={todo.completed}
-              onDelete={onDeleteTodo}
-              value={idx}
-              onBlur={onBlur}
-              dataID={idx}
-              onCompleted={onCompleted}
-            >
-              {todo.name}
-            </TodoContent>
-          </div>
-        ))}
+        <TransitionGroup component={'div'}>
+          {todoList.map((todo: Todo, id: number) => (
+            <CSSTransition key={todo.id} timeout={300} classNames={styles.list}>
+              <div>
+                <TodoContent
+                  checked={todo.completed}
+                  onDelete={onDeleteTodo}
+                  value={id}
+                  onBlur={onBlur}
+                  dataID={id}
+                  onCompleted={onCompleted}
+                >
+                  {todo.name}
+                </TodoContent>
+              </div>
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
       </div>
     );
   }
