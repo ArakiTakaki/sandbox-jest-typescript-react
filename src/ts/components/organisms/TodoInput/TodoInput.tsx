@@ -1,7 +1,6 @@
 import React, {
   FormEventHandler,
   MouseEventHandler,
-  KeyboardEventHandler
 } from 'react';
 import InputText from '~/components/atoms/InputText/InputText';
 import Button from '~/components/atoms/Button/Button';
@@ -16,7 +15,7 @@ interface Props {
 const TodoInput = (props: Props) => {
   return (
     <div className={styles.root}>
-      <InputText onInput={props.onChangeInput} value={props.inputTodo} />
+      <InputText onChange={props.onChangeInput} value={props.inputTodo} />
       <Button onClick={props.addTodoEvent}>add</Button>
     </div>
   );

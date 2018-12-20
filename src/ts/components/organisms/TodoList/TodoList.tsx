@@ -14,6 +14,16 @@ interface State {}
 class TodoList extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    this.state = {};
+    this.onChange = this.onChange.bind(this);
+  }
+  private onChange(event: React.FocusEvent<HTMLInputElement>) {
+    const {
+      value,
+      dataset: { id }
+    } = event.currentTarget;
+    if (id == null) return;
+    this.setState({ [id]: value });
   }
 
   render() {
@@ -27,7 +37,6 @@ class TodoList extends React.Component<Props, State> {
                 <TodoContent
                   checked={todo.completed}
                   onDelete={onDeleteTodo}
-                  value={id}
                   onBlur={onBlur}
                   dataID={id}
                   onCompleted={onCompleted}

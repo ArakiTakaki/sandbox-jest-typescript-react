@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 
 const styles = require('./InputText.sass');
@@ -19,10 +19,7 @@ interface Props {
   fullWidth?: boolean;
 }
 const InputText = (props: Props) => {
-  const input = classNames(
-    styles.input,
-    { [styles.error]: false },
-  );
+  const input = classNames(styles.input, { [styles.error]: false });
   return (
     <div className={styles.root}>
       <label>
@@ -32,7 +29,7 @@ const InputText = (props: Props) => {
           disabled={props.disabled}
           className={input}
           defaultValue={props.defaultValue}
-          value={props.value}
+          value={props.onChange ? props.value : undefined}
           onInput={props.onInput}
           onChange={props.onChange}
           onClick={props.onClick}
