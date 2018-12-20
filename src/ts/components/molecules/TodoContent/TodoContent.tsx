@@ -18,9 +18,9 @@ const TodoContent = (props: Props) => {
   return (
     <div className={styles.root}>
       <CheckBox onCheck={props.onCompleted} value={props.dataID} />
-      <p>
+      <div className={styles.inputText}>
         {false ? (
-          <span className={styles.typography}>{props.children}</span>
+          <p className={styles.typography}>{props.children}</p>
         ) : (
           <InputText
             defaultValue={props.children}
@@ -29,7 +29,7 @@ const TodoContent = (props: Props) => {
             error
           />
         )}
-      </p>
+      </div>
       <CrossButton onClick={props.onDelete} value={props.value} />
     </div>
   );
