@@ -3,25 +3,31 @@
     align-items: center
     justify-content: space-between
     padding: 10px 0
-    &>p
-      width: 100%
+    animation: fadein 300ms
+
+    & > p
+        width: 100%
+
 .typography
     line-height: 2rem
 
 .close
-  display: none
-  & + .icon:after
-    margin: 0 1rem
-    content: "✕"
-    color: red
-    width: 2rem;
-    height: 2rem;
-    font-size: 1.2rem
-.checkbox
     display: none
+
     & + .icon:after
         margin: 0 1rem
-        padding: .2rem
+        content: '✕'
+        color: red
+        width: 2rem
+        height: 2rem
+        font-size: 1.2rem
+
+.checkbox
+    display: none
+
+    & + .icon:after
+        margin: 0 1rem
+        padding: 0.2rem
         transition: 100ms ease-out
         content: '✓'
         border: 1px solid #555
@@ -34,3 +40,11 @@
         content: '✓'
         color: rgba(255, 255, 255, 1)
         background-color: #66CC99
+
+@keyframes fadein
+    0%
+        transform: scale(0.9)
+        opacity: 0
+    100%
+        transform: scale(1)
+        opacity: 1

@@ -10,21 +10,26 @@ interface Props {
   onDelete?: React.MouseEventHandler;
   onCheck?: React.MouseEventHandler;
   value?: any;
+  onBlur?: React.FocusEventHandler;
+  dataID?: any;
+  onCompleted?: React.MouseEventHandler;
 }
 const TodoContent = (props: Props) => {
   return (
     <div className={styles.root}>
-      <form>
-        <CheckBox onCheck={props.onCheck} />
-        <p>
-          {false ? (
-            <span className={styles.typography}>{props.children}</span>
-          ) : (
-            <InputText value={props.children} />
-          )}
-        </p>
-        <CrossButton onClick={props.onDelete} />
-      </form>
+      <CheckBox onCheck={props.onCompleted} value={props.dataID} />
+      <p>
+        {false ? (
+          <span className={styles.typography}>{props.children}</span>
+        ) : (
+          <InputText
+            defaultValue={props.children}
+            onBlur={props.onBlur}
+            dataID={props.dataID}
+          />
+        )}
+      </p>
+      <CrossButton onClick={props.onDelete} value={props.value} />
     </div>
   );
 };

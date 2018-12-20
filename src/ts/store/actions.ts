@@ -26,6 +26,17 @@ export const todoDeleteAmount = (amount: Todo): TodoAction => ({
   type: ActionTypes.TODO_DELETE,
   payload: amount
 });
+// interface TodoEdit extends BaseAction {
+//   type: string;
+//   payload: {
+//     id: number;
+//     name: string;
+//   };
+// }
+// export const todoEditAmount = (id: number, name: string): TodoEdit => ({
+//   type: ActionTypes.TODO_EDIT,
+//   payload: { id, name }
+// });
 export const todoEditAmount = (amount: Todo): TodoAction => ({
   type: ActionTypes.TODO_EDIT,
   payload: amount

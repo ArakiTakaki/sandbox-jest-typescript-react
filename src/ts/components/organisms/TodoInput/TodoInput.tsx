@@ -4,8 +4,9 @@ import React, {
   KeyboardEventHandler
 } from 'react';
 import InputText from '~/components/atoms/InputText/InputText';
+import Button from '~/components/atoms/Button/Button';
 
-const styles = require('./Style.sass');
+const styles = require('./TodoInput.sass');
 
 interface Props {
   onChangeInput: FormEventHandler;
@@ -15,12 +16,8 @@ interface Props {
 const TodoInput = (props: Props) => {
   return (
     <div className={styles.root}>
-      <div>
-        <InputText onInput={props.onChangeInput} value={props.inputTodo} />
-      </div>
-      <div>
-        <button onClick={props.addTodoEvent}>add</button>
-      </div>
+      <InputText onInput={props.onChangeInput} value={props.inputTodo} />
+      <Button onClick={props.addTodoEvent}>add</Button>
     </div>
   );
 };

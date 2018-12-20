@@ -8,7 +8,7 @@ import { Todo } from './model';
  * @param baseTodoList 元となるTodoList
  * @param editTodo 編集後のTodo
  */
-const editByTodo = (baseTodoList: Todo[], editTodo: Todo) => {
+const editByTodo = (baseTodoList: Todo[], editTodo:Todo) => {
   const idx = findIndex(baseTodoList, baseTodo => baseTodo.id === editTodo.id);
   if (idx === -1) return baseTodoList;
   const editTodoList = baseTodoList.slice();
@@ -30,11 +30,14 @@ const reducer = (
       return { ...state, todo_list: [...state.todo_list, payload] };
     case ActionTypes.TODO_DELETE:
       const filteredTodoList = state.todo_list.filter(
-        item => item.id != payload.id
+        item => item.id !== payload.id
       );
       return { ...state, todo_list: filteredTodoList };
     case ActionTypes.TODO_EDIT:
-      return { ...state, todo_list: editByTodo(state.todo_list, payload) };
+      return {
+        ...state,
+        todo_list: editByTodo(state.todo_list, payload)
+      };
     default:
       return state;
   }

@@ -25,8 +25,9 @@ class Index extends React.Component<Props, State> {
     this.state = { inputTodo: '' };
     this.clickToMapping = this.clickToMapping.bind(this);
     this.addTodoEvent = this.addTodoEvent.bind(this);
-    this.changeCompletedEvent = this.changeCompletedEvent.bind(this);
+    this.changeTodoContent = this.changeTodoContent.bind(this);
     this.deleteTodoEvent = this.deleteTodoEvent.bind(this);
+    this.changeTodoCompleted = this.changeTodoCompleted.bind(this);
   }
 
   private clickToMapping(event: ChangeEvent<HTMLInputElement>) {
@@ -45,12 +46,30 @@ class Index extends React.Component<Props, State> {
     this.setState({ inputTodo: '' });
   }
 
-  private changeCompletedEvent(event: ChangeEvent<HTMLInputElement>) {
-    const idx = Number(event.currentTarget.value);
-    const editTodo: Todo = this.props.store.todo_list[idx];
-    editTodo.completed = !editTodo.completed;
+  private changeTodoContent(event: React.FocusEvent<HTMLInputElement>) {
+    const { id } = event.currentTarget.dataset;
+    if (id == null) return;
+    const prevState = this.props.store.todo_list[Number(id)];
+    const editTodo: Todo = {
+      id: Number(id),
+      name: event.currentTarget.value,
+      completed: prevState.completed
+    };
     this.props.dispatch(todoEditAmount(editTodo));
   }
+
+  private changeTodoCompleted(event: MouseEvent<HTMLInputElement>) {
+    const { value } = event.currentTarget;
+    if (value == null) return;
+    const prevState = this.props.store.todo_list[Number(value)];
+    const editTodo: Todo = {
+      id: Number(value),
+      name: prevState.name,
+      completed: !prevState.completed
+    };
+    this.props.dispatch(todoEditAmount(editTodo));
+  }
+
   private deleteTodoEvent(event: MouseEvent<HTMLInputElement>) {
     const idx = Number(event.currentTarget.value);
     const deleteTodo: Todo = this.props.store.todo_list[idx];
@@ -64,10 +83,11 @@ class Index extends React.Component<Props, State> {
         <IndexTemplate
           inputTodo={this.state.inputTodo}
           onChangeInput={this.clickToMapping}
-          onChangeCompleted={this.changeCompletedEvent}
           todoList={store.todo_list}
           addTodoEvent={this.addTodoEvent}
           onDeleteTodo={this.deleteTodoEvent}
+          onBlur={this.changeTodoContent}
+          onCompleted={this.changeTodoCompleted}
         />
       </div>
     );

@@ -8,8 +8,9 @@ interface Props {
   inputTodo: string;
   todoList: Todo[];
   addTodoEvent: React.MouseEventHandler;
-  onChangeCompleted: React.FormEventHandler;
   onDeleteTodo: React.MouseEventHandler;
+  onBlur: React.FocusEventHandler;
+  onCompleted: React.MouseEventHandler;
 }
 interface State {}
 class IndexTemplate extends React.Component<Props, State> {
@@ -17,12 +18,14 @@ class IndexTemplate extends React.Component<Props, State> {
     super(props);
   }
   render() {
+    //
     const {
       todoList,
       inputTodo,
       onChangeInput,
       addTodoEvent,
-      onChangeCompleted,
+      onBlur,
+      onCompleted,
       onDeleteTodo
     } = this.props;
     return (
@@ -34,8 +37,9 @@ class IndexTemplate extends React.Component<Props, State> {
         />
         <TodoList
           todoList={todoList}
-          onChangeCompleted={onChangeCompleted}
           onDeleteTodo={onDeleteTodo}
+          onBlur={onBlur}
+          onCompleted={onCompleted}
         />
       </div>
     );

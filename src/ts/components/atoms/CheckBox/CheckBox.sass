@@ -1,10 +1,12 @@
-
 .checkbox
     display: none
+
     & + .icon:after
+        display: inline-block
         margin: 1rem
-        padding: .2rem
+        padding: 0.2rem
         transition: 100ms ease-out
+        transition-property: color, background-color, transform
         content: '✓'
         border: 1px solid #555
         border-radius: 50%
@@ -16,3 +18,4 @@
         content: '✓'
         color: rgba(255, 255, 255, 1)
         background-color: #66CC99
+        transform: scale(1.2)
