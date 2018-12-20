@@ -1,0 +1,33 @@
+.root
+    margin: 1rem 0
+
+.todo
+    border-bottom: 1px solid #555
+    padding: 0.5rem 0
+
+    &:last-child
+        border: 0
+
+.list
+    margin: 0
+    &-enter
+        overflow: hidden
+        display: block
+        opacity: 0.01
+        max-height: 0vh
+        &-active
+            opacity: 1
+            max-height: 10rem
+            transition: 300ms ease-in
+            transition-property: opacity,  max-height
+
+    &-exit
+        overflow: hidden
+        display: block
+        opacity: 1
+        max-height: 10rem
+        &-active
+            max-height: 0vh
+            opacity: 0.01
+            transition: 300ms ease-in
+            transition-property: opacity, max-height

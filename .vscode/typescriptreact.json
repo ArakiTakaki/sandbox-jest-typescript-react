@@ -1,0 +1,65 @@
+{
+  "ConsoleLog": {
+    "prefix": "p",
+    "body": "console.log(${1});",
+    "description": "console log"
+  },
+  "ReactComponentStore": {
+    "prefix": "reas",
+    "description": "Storeに接続したReactCompoonent",
+    "body": [
+      "import React from 'react';",
+      "import { connect } from 'react-redux';",
+      "import { StateType } from '~/store/initialState';",
+      "import { hot } from 'react-hot-loader';",
+      "",
+      "interface Props {",
+      "  store: StateType;",
+      "  dispatch: Function;",
+      "}",
+      "interface State {}",
+      "",
+      "class ${1} extends React.Component<Props, State> {",
+      "  constructor(props: Props) {",
+      "    super(props);",
+      "  }",
+      "  render() {",
+      "    const { store, dispatch } = this.props;",
+      "    return (",
+      "      <div>",
+      "        {store.name}",
+      "      </div>",
+      "    );",
+      "  }",
+      "}",
+      "",
+      "const connectToComponent = connect((state: StateType) => ({ store: state }))(${1});",
+      "export default connectToComponent",
+      ""
+    ]
+  },
+  "ReactComponent": {
+    "prefix": "rea",
+    "body": [
+      "import React from 'react';",
+      "",
+      "interface Props {}",
+      "interface State {}",
+      "class ${1:test} extends React.Component<Props, State> {",
+      "  constructor(props: Props) {",
+      "    super(props);",
+      "  }",
+      "  render() {",
+      "    return (",
+      "      <div>",
+      "        sample",
+      "      </div>",
+      "    );",
+      "  }",
+      "}",
+      "",
+      "export default ${1:test};"
+    ],
+    "description": "Reactコンポーネント"
+  }
+}

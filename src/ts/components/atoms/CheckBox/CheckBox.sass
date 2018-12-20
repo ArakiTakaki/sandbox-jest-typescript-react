@@ -1,0 +1,21 @@
+.checkbox
+    display: none
+
+    & + .icon:after
+        display: inline-block
+        margin: 1rem
+        padding: 0.2rem
+        transition: 100ms ease-out
+        transition-property: color, background-color, transform
+        content: '✓'
+        border: 1px solid #555
+        border-radius: 50%
+        color: rgba(0, 0, 0, 0)
+        font-size: 1.2rem
+        cursor: pointer
+
+    &:checked + .icon:after
+        content: '✓'
+        color: rgba(255, 255, 255, 1)
+        background-color: #66CC99
+        transform: scale(1.2)

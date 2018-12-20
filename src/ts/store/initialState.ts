@@ -1,0 +1,17 @@
+import { Todo } from './model';
+export type StateType = {
+  count: number;
+  name: string;
+  todo_list: Todo[];
+};
+export const initialState: StateType = {
+  count: 0,
+  name: 'GUEST',
+  todo_list: [
+    {
+      id: 0,
+      name: 'sample todo',
+      completed: false,
+    },
+  ],
+};

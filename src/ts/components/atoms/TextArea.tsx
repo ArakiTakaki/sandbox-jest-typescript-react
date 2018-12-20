@@ -1,13 +1,18 @@
-import React, { ChangeEventHandler } from "react";
-import "./sass/TextArea";
+import React, { ChangeEventHandler } from 'react';
 
 interface Props {
   value: string;
-  eventChange: ChangeEventHandler;
+  eventChange?: ChangeEventHandler;
+  children?: string;
 }
 const TextArea = (props: Props) => {
-  const { value, eventChange } = props;
-  return <input type="text" value={value} onChange={eventChange} />;
+  const { value, eventChange, children } = props;
+  return (
+    <div>
+      InputType:{children}
+      <input type='text' value={value} onChange={eventChange} />
+    </div>
+  );
 };
 
 export default TextArea;

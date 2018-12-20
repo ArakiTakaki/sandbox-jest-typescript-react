@@ -1,0 +1,41 @@
+.root
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 10px 0
+
+    & > p
+        width: 100%
+
+.typography
+    line-height: 2rem
+
+.close
+    display: none
+
+    & + .icon:after
+        margin: 0 1rem
+        content: '✕'
+        color: red
+        width: 2rem
+        height: 2rem
+        font-size: 1.2rem
+
+.checkbox
+    display: none
+
+    & + .icon:after
+        margin: 0 1rem
+        padding: 0.2rem
+        transition: 100ms ease-out
+        content: '✓'
+        border: 1px solid #555
+        border-radius: 50%
+        color: rgba(0, 0, 0, 0)
+        font-size: 1.2rem
+        cursor: pointer
+
+    &:checked + .icon:after
+        content: '✓'
+        color: rgba(255, 255, 255, 1)
+        background-color: #66CC99

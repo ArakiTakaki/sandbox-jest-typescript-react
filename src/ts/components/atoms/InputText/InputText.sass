@@ -1,0 +1,44 @@
+.root
+    margin: 0
+    padding: 0
+
+// 初期化
+.input
+    outline: 0
+    border: 0
+    line-height: 2rem
+    background-color: rgba(0, 0, 0, 0)
+    font-family: sans-serif
+    outline: 0
+    border: 0
+
+// 追加要素
+.input
+    width: 100%
+    & + .border
+        display: block
+        transition: 200ms
+        transition-timing-function: ease-out
+        transition-property: outline-color, transform
+        width: 100%
+        transform: scaleX(0)
+        opacity: 0
+        outline: solid rgba(#000, 0) 1px
+
+    &:hover + .border
+        outline-color: rgba(20, 20, 20, 0.8)
+        transform: scaleX(1)
+        opacity: 1
+
+    &:focus + .border
+        width: 100%
+        transform: scaleX(1)
+        outline-color: rgba(#6666CC, 0.8)
+        opacity: 1
+
+
+.error
+    color: red
+
+    & + .border
+        outline: solid rgba(#FF9494, 0.8) 1px
