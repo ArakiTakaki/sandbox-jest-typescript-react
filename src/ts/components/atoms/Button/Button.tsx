@@ -10,11 +10,7 @@ interface Props {
 const Button = (props: Props) => {
   return (
     <div>
-      <button
-        onClick={props.onClick}
-        onSubmit={props.onSubmit}
-        className={styles.my_button}
-      >
+      <button onClick={props.onClick} onSubmit={props.onSubmit} className={styles.my_button}>
         {props.children}
       </button>
     </div>

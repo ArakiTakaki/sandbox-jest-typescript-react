@@ -19,28 +19,13 @@ class IndexTemplate extends React.Component<Props, State> {
   }
   render() {
     //
-    const {
-      todoList,
-      inputTodo,
-      onChangeInput,
-      addTodoEvent,
-      onBlur,
-      onCompleted,
-      onDeleteTodo
-    } = this.props;
+    const { todoList, inputTodo, onChangeInput, addTodoEvent, onBlur, onCompleted, onDeleteTodo } = this.props;
     return (
       <div>
-        <TodoInput
-          onChangeInput={onChangeInput}
-          addTodoEvent={addTodoEvent}
-          inputTodo={inputTodo}
-        />
-        <TodoList
-          todoList={todoList}
-          onDeleteTodo={onDeleteTodo}
-          onBlur={onBlur}
-          onCompleted={onCompleted}
-        />
+        <div>
+          <TodoInput onChangeInput={onChangeInput} addTodoEvent={addTodoEvent} inputTodo={inputTodo} />
+        </div>
+        <TodoList todoList={todoList} onDeleteTodo={onDeleteTodo} onBlur={onBlur} onCompleted={onCompleted} />
       </div>
     );
   }

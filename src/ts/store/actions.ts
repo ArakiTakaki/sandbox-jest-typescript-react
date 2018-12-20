@@ -7,7 +7,7 @@ export enum ActionTypes {
   TODO_GET = 'TODO_GET',
   TODO_ADD = 'TODO_ADD',
   TODO_DELETE = 'TODO_DELETE',
-  TODO_EDIT = 'TODO_EDIT'
+  TODO_EDIT = 'TODO_EDIT',
 }
 
 export interface BaseAction extends Action<string> {
@@ -20,11 +20,11 @@ interface TodoAction extends BaseAction {
 }
 export const todoAddAmount = (amount: Todo): TodoAction => ({
   type: ActionTypes.TODO_ADD,
-  payload: amount
+  payload: amount,
 });
 export const todoDeleteAmount = (amount: Todo): TodoAction => ({
   type: ActionTypes.TODO_DELETE,
-  payload: amount
+  payload: amount,
 });
 // interface TodoEdit extends BaseAction {
 //   type: string;
@@ -39,7 +39,7 @@ export const todoDeleteAmount = (amount: Todo): TodoAction => ({
 // });
 export const todoEditAmount = (amount: Todo): TodoAction => ({
   type: ActionTypes.TODO_EDIT,
-  payload: amount
+  payload: amount,
 });
 
 interface CounterAction extends BaseAction {
@@ -47,9 +47,9 @@ interface CounterAction extends BaseAction {
 }
 export const incrementAmount = (amount: number): CounterAction => ({
   type: ActionTypes.INCREMENT_COUNTER,
-  payload: amount
+  payload: amount,
 });
 export const decrementAmount = (amount: number): CounterAction => ({
   type: ActionTypes.DECREMENT_COUNTER,
-  payload: amount
+  payload: amount,
 });

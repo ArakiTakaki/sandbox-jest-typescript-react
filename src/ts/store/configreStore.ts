@@ -6,9 +6,5 @@ import logger from 'redux-logger';
 const middleware = [];
 middleware.push(logger);
 
-const store = createStore(
-  reducer,
-  initialState,
-  applyMiddleware(...middleware)
-);
+const store = createStore(reducer, initialState, applyMiddleware(...middleware));
 export default store;

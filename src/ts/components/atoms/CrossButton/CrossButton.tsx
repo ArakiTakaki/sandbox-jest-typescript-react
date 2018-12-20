@@ -10,12 +10,7 @@ const CrossButton = (props: Props) => {
   return (
     <div>
       <label>
-        <input
-          value={props.value}
-          type='button'
-          className={styles.cross}
-          onClick={props.onClick}
-        />
+        <input value={props.value} type='button' className={styles.cross} onClick={props.onClick} />
         <div className={styles.icon} />
       </label>
     </div>

@@ -20,7 +20,7 @@ class TodoList extends React.Component<Props, State> {
   private onChange(event: React.FocusEvent<HTMLInputElement>) {
     const {
       value,
-      dataset: { id }
+      dataset: { id },
     } = event.currentTarget;
     if (id == null) return;
     this.setState({ [id]: value });

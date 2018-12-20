@@ -16,10 +16,7 @@ const editByTodo = (baseTodoList: Todo[], editTodo: Todo) => {
   return editTodoList;
 };
 
-const reducer = (
-  state: StateType = initialState,
-  action: BaseAction
-): StateType => {
+const reducer = (state: StateType = initialState, action: BaseAction): StateType => {
   const { payload } = action;
   switch (action.type) {
     case ActionTypes.INCREMENT_COUNTER:
@@ -29,14 +26,12 @@ const reducer = (
     case ActionTypes.TODO_ADD:
       return { ...state, todo_list: [payload, ...state.todo_list] };
     case ActionTypes.TODO_DELETE:
-      const filteredTodoList = state.todo_list.filter(
-        item => item.id !== payload.id
-      );
+      const filteredTodoList = state.todo_list.filter(item => item.id !== payload.id);
       return { ...state, todo_list: filteredTodoList };
     case ActionTypes.TODO_EDIT:
       return {
         ...state,
-        todo_list: editByTodo(state.todo_list, payload)
+        todo_list: editByTodo(state.todo_list, payload),
       };
     default:
       return state;

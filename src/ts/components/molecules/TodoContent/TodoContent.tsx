@@ -22,12 +22,7 @@ const TodoContent = (props: Props) => {
         {false ? (
           <p className={styles.typography}>{props.children}</p>
         ) : (
-          <InputText
-            defaultValue={props.children}
-            onBlur={props.onBlur}
-            dataID={props.dataID}
-            error
-          />
+          <InputText defaultValue={props.children} onBlur={props.onBlur} dataID={props.dataID} error />
         )}
       </div>
       <CrossButton onClick={props.onDelete} value={props.value} />

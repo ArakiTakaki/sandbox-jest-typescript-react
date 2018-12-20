@@ -1,7 +1,4 @@
-import React, {
-  FormEventHandler,
-  MouseEventHandler,
-} from 'react';
+import React, { FormEventHandler, MouseEventHandler } from 'react';
 import InputText from '~/components/atoms/InputText/InputText';
 import Button from '~/components/atoms/Button/Button';
 

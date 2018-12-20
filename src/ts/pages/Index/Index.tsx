@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 import { StateType } from '~/store/initialState';
 import { hot } from 'react-hot-loader';
 import IndexTemplate from '~/components/templates/IndexTemplate/IndexTemplate';
-import {
-  todoAddAmount,
-  todoEditAmount,
-  todoDeleteAmount
-} from '~/store/actions';
+import { todoAddAmount, todoEditAmount, todoDeleteAmount } from '~/store/actions';
 import { Todo } from '~/store/model';
 
 interface Props {
@@ -40,7 +36,7 @@ class Index extends React.Component<Props, State> {
     const todoModel: Todo = {
       id: this.todoID++,
       name: this.state.inputTodo,
-      completed: false
+      completed: false,
     };
     dispatch(todoAddAmount(todoModel));
     this.setState({ inputTodo: '' });
@@ -53,7 +49,7 @@ class Index extends React.Component<Props, State> {
     const editTodo: Todo = {
       id: prevState.id,
       name: event.currentTarget.value,
-      completed: prevState.completed
+      completed: prevState.completed,
     };
     this.props.dispatch(todoEditAmount(editTodo));
   }
@@ -65,7 +61,7 @@ class Index extends React.Component<Props, State> {
     const editTodo: Todo = {
       id: prevState.id,
       name: prevState.name,
-      completed: !prevState.completed
+      completed: !prevState.completed,
     };
     this.props.dispatch(todoEditAmount(editTodo));
   }
@@ -94,7 +90,5 @@ class Index extends React.Component<Props, State> {
   }
 }
 
-const connectToComponent = connect((state: StateType) => ({ store: state }))(
-  Index
-);
+const connectToComponent = connect((state: StateType) => ({ store: state }))(Index);
 export default connectToComponent;
