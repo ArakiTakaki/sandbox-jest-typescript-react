@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+
 const styles = require('./InputText.sass');
 
 interface Props {
@@ -12,16 +14,23 @@ interface Props {
   onBlur?: React.FocusEventHandler;
   onFocus?: React.FocusEventHandler;
   dataID?: any;
+  error?: boolean;
+  disabled?: boolean;
   fullWidth?: boolean;
 }
 const InputText = (props: Props) => {
+  const input = classNames(
+    styles.input,
+    { [styles.error]: false },
+  );
   return (
     <div className={styles.root}>
       <label>
         {props.label}
         <input
           type='text'
-          className={styles.input}
+          disabled={props.disabled}
+          className={input}
           defaultValue={props.defaultValue}
           value={props.value}
           onInput={props.onInput}
@@ -32,7 +41,7 @@ const InputText = (props: Props) => {
           onFocus={props.onFocus}
           data-id={props.dataID}
         />
-        <div className={styles.border}></div>
+        <div className={styles.border} />
       </label>
     </div>
   );

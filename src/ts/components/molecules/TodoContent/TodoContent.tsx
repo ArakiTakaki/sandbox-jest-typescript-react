@@ -26,6 +26,7 @@ const TodoContent = (props: Props) => {
             defaultValue={props.children}
             onBlur={props.onBlur}
             dataID={props.dataID}
+            error
           />
         )}
       </p>
