@@ -57,6 +57,7 @@ class Index extends React.Component<Props, State> {
     };
     dispatch(todoAddAmount(todoModel));
     this.setState({ inputTodo: '' });
+    this.todoID += 1;
   }
 
   private changeTodoContent(event: React.FocusEvent<HTMLInputElement>) {
@@ -84,8 +85,8 @@ class Index extends React.Component<Props, State> {
   }
 
   private deleteTodoEvent(event: MouseEvent<HTMLInputElement>) {
-    const idx = Number(event.currentTarget.value);
-    const deleteTodo: Todo = this.props.store.todo_list[idx];
+    const { value } = event.currentTarget;
+    const deleteTodo: Todo = this.props.store.todo_list[Number(value)];
     this.props.dispatch(todoDeleteAmount(deleteTodo));
   }
 }

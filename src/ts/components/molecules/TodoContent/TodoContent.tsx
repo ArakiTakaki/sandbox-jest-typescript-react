@@ -25,7 +25,7 @@ const TodoContent = (props: Props) => {
           <InputText defaultValue={props.children} onBlur={props.onBlur} dataID={props.dataID} />
         )}
       </div>
-      <CrossButton onClick={props.onDelete} value={props.value} />
+      <CrossButton onClick={props.onDelete} value={props.dataID} />
     </div>
   );
 };
