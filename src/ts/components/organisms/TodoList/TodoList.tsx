@@ -2,7 +2,7 @@ import React from 'react';
 import { Todo } from '../../../store/model';
 import TodoContent from '../../molecules/TodoContent/TodoContent';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import styles from './style';
+import styles from './style.sass';
 
 interface Props {
   todoList: Todo[];

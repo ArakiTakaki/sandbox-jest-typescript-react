@@ -2,7 +2,7 @@ import React from 'react';
 import InputText from '../../atoms/InputText/InputText';
 import CheckBox from '../../atoms/CheckBox/CheckBox';
 import CrossButton from '../../atoms/CrossButton/CrossButton';
-import styles from './style';
+import styles from './style.sass';
 
 interface Props {
   children: string;

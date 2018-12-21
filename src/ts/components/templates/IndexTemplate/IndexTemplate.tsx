@@ -2,7 +2,7 @@ import React from 'react';
 import { Todo } from '../../../store/model';
 import TodoList from '../../organisms/TodoList/TodoList';
 import TodoInput from '../../organisms/TodoInput/TodoInput';
-import styles from './style';
+import styles from './style.sass';
 
 interface Props {
   todoList: Todo[];
