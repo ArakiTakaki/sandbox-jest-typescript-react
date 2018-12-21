@@ -52,8 +52,8 @@ class Index extends React.Component<Props, State> {
   private onChangeTodoName(idx: number, name: string) {
     const prevState = this.props.store.todo_list[idx];
     const editTodo: Todo = {
-      name,
       id: prevState.id,
+      name,
       completed: prevState.completed,
     };
     this.props.dispatch(todoEditAmount(editTodo));

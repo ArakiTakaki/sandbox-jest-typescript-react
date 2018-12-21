@@ -18,7 +18,6 @@ class TodoInput extends React.Component<Props, State> {
   }
 
   public render() {
-    console.log('TodoInput render');
     return (
       <div className={styles.root}>
         <div className={styles.inputContent}>

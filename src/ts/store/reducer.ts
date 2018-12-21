@@ -24,7 +24,7 @@ const reducer = (state: StateType = initialState, action: BaseAction): StateType
     case ActionTypes.DECREMENT_COUNTER:
       return { ...state, count: state.count - payload };
     case ActionTypes.TODO_ADD:
-      return { ...state, todo_list: [payload, ...state.todo_list] };
+      return { ...state, todo_list: [...state.todo_list, payload] };
     case ActionTypes.TODO_DELETE:
       const filteredTodoList = state.todo_list.filter(item => item.id !== payload.id);
       return { ...state, todo_list: filteredTodoList };

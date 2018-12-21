@@ -22,10 +22,9 @@ class TodoList extends React.Component<Props, State> {
 
   public render() {
     const { todoList } = this.props;
-    console.log('TodoList Render');
     return (
       <div className={styles.root}>
-        <TransitionGroup component={'div'}>
+        <TransitionGroup component={'div'} className={styles.list}>
           {todoList.map((todo: Todo, idx: number) => (
             <CSSTransition key={todo.id} timeout={300} classNames={styles.list}>
               <div>

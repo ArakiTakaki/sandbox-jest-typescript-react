@@ -15,7 +15,6 @@ interface Props {
   onCompleted?: React.MouseEventHandler;
 }
 const TodoContent = (props: Props) => {
-  console.log('molecules TodoContent Render');
   return (
     <div className={styles.root}>
       <CheckBox onCheck={props.onCompleted} value={props.idx} />
