@@ -1,13 +1,16 @@
+import '../sass/base';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Index from './pages/Index/Index';
-import '../sass/base';
 import { Provider } from 'react-redux';
-import store from './store/configreStore';
+import store, { persistor } from './store/configreStore';
+import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.render(
   <Provider store={store}>
-    <Index />
+    <PersistGate loading={null} persistor={persistor}>
+      <Index />
+    </PersistGate>
   </Provider>,
   document.getElementById('app')
 );

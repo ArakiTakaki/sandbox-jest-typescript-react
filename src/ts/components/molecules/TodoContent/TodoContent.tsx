@@ -12,12 +12,12 @@ interface Props {
   value?: any;
   onBlur?: React.FocusEventHandler;
   idx?: number;
-  onCompleted?: React.MouseEventHandler;
+  onCompleted?: React.ChangeEventHandler;
 }
 const TodoContent = (props: Props) => {
   return (
     <div className={styles.root}>
-      <CheckBox onCheck={props.onCompleted} value={props.idx} />
+      <CheckBox onCheck={props.onCompleted} value={props.idx} checked={props.checked} />
       <div className={styles.inputText}>
         {false ? (
           <p className={styles.typography}>{props.children}</p>

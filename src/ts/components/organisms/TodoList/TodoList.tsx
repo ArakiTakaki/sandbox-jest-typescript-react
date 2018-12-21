@@ -58,7 +58,7 @@ class TodoList extends React.Component<Props, State> {
     } = e.currentTarget;
     onChangeName(Number(id), value);
   }
-  private onCompleted(e: React.MouseEvent<HTMLInputElement>) {
+  private onCompleted(e: React.ChangeEvent<HTMLInputElement>) {
     const { onCompleted } = this.props;
     if (onCompleted == null) return;
     onCompleted(Number(e.currentTarget.value));
