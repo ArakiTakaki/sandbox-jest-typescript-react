@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import styles from './style';
+import styles from './styles.sass';
 
 interface Props {
   label?: string;

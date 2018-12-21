@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './styles';
+import * as React from 'react';
+import styles from './styles.sass';
 
 interface Props {
   onClick?: React.MouseEventHandler;

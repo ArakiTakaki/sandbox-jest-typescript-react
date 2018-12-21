@@ -6,32 +6,35 @@ import styles from './style';
 
 interface Props {
   todoList: Todo[];
-  onDeleteTodo: React.MouseEventHandler;
-  onBlur?: React.FocusEventHandler;
-  onCompleted: React.MouseEventHandler;
+  onDeleteTodo?(idx: number): void;
+  onCompleted?(idx: number): void;
+  onChangeName?(idx: number, name: string): void;
 }
 interface State {}
 class TodoList extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {};
-    this.onChange = this.onChange.bind(this);
+    this.onDelete = this.onDelete.bind(this);
+    this.onCompleted = this.onCompleted.bind(this);
+    this.onBlur = this.onBlur.bind(this);
   }
 
   public render() {
-    const { todoList, onDeleteTodo, onBlur, onCompleted } = this.props;
+    const { todoList } = this.props;
+    console.log('TodoList Render');
     return (
       <div className={styles.root}>
         <TransitionGroup component={'div'}>
-          {todoList.map((todo: Todo, id: number) => (
+          {todoList.map((todo: Todo, idx: number) => (
             <CSSTransition key={todo.id} timeout={300} classNames={styles.list}>
               <div>
                 <TodoContent
                   checked={todo.completed}
-                  onDelete={onDeleteTodo}
-                  onBlur={onBlur}
-                  dataID={id}
-                  onCompleted={onCompleted}
+                  onDelete={this.onDelete}
+                  onBlur={this.onBlur}
+                  idx={idx}
+                  onCompleted={this.onCompleted}
                 >
                   {todo.name}
                 </TodoContent>
@@ -42,15 +45,26 @@ class TodoList extends React.Component<Props, State> {
       </div>
     );
   }
-
-  private onChange(event: React.FocusEvent<HTMLInputElement>) {
+  private onDelete(e: React.MouseEvent<HTMLInputElement>) {
+    const { onDeleteTodo } = this.props;
+    if (onDeleteTodo == null) return;
+    onDeleteTodo(Number(e.currentTarget.value));
+  }
+  private onBlur(e: React.FocusEvent<HTMLInputElement>) {
+    const { onChangeName } = this.props;
+    if (onChangeName == null) return;
     const {
-      value,
       dataset: { id },
-    } = event.currentTarget;
-    if (id == null) return;
-    this.setState({ [id]: value });
+      value,
+    } = e.currentTarget;
+    onChangeName(Number(id), value);
+  }
+  private onCompleted(e: React.MouseEvent<HTMLInputElement>) {
+    const { onCompleted } = this.props;
+    if (onCompleted == null) return;
+    onCompleted(Number(e.currentTarget.value));
   }
 }
 
 export default TodoList;
+// export default React.memo(TodoList);

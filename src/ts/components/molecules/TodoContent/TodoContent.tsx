@@ -11,23 +11,25 @@ interface Props {
   onCheck?: React.MouseEventHandler;
   value?: any;
   onBlur?: React.FocusEventHandler;
-  dataID?: any;
+  idx?: number;
   onCompleted?: React.MouseEventHandler;
 }
 const TodoContent = (props: Props) => {
+  console.log('molecules TodoContent Render');
   return (
     <div className={styles.root}>
-      <CheckBox onCheck={props.onCompleted} value={props.dataID} />
+      <CheckBox onCheck={props.onCompleted} value={props.idx} />
       <div className={styles.inputText}>
         {false ? (
           <p className={styles.typography}>{props.children}</p>
         ) : (
-          <InputText defaultValue={props.children} onBlur={props.onBlur} dataID={props.dataID} />
+          <InputText defaultValue={props.children} onBlur={props.onBlur} dataID={props.idx} />
         )}
       </div>
-      <CrossButton onClick={props.onDelete} value={props.dataID} />
+      <CrossButton onClick={props.onDelete} value={props.idx} />
     </div>
   );
 };
 
-export default TodoContent;
+export default React.memo(TodoContent);
+// export default TodoContent;
