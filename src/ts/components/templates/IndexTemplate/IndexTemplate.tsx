@@ -2,7 +2,7 @@ import React from 'react';
 import { Todo } from '../../../store/model';
 import TodoList from '../../organisms/TodoList/TodoList';
 import TodoInput from '../../organisms/TodoInput/TodoInput';
-// import styles from './style';
+import styles from './style';
 
 interface Props {
   onChangeInput: React.FormEventHandler;
@@ -22,10 +22,12 @@ class IndexTemplate extends React.Component<Props, State> {
     const { todoList, inputTodo, onChangeInput, addTodoEvent, onBlur, onCompleted, onDeleteTodo } = this.props;
     return (
       <div>
-        <div>
+        <div className={styles.input}>
           <TodoInput onChangeInput={onChangeInput} addTodoEvent={addTodoEvent} inputTodo={inputTodo} />
         </div>
-        <TodoList todoList={todoList} onDeleteTodo={onDeleteTodo} onBlur={onBlur} onCompleted={onCompleted} />
+        <div className={styles.content}>
+          <TodoList todoList={todoList} onDeleteTodo={onDeleteTodo} onBlur={onBlur} onCompleted={onCompleted} />
+        </div>
       </div>
     );
   }

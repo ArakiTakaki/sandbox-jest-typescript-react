@@ -16,9 +16,10 @@ interface Props {
   error?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
+  borderBottom?: boolean;
 }
 const InputText = (props: Props) => {
-  const input = classNames(styles.input, { [styles.error]: false });
+  const input = classNames(styles.input, { [styles.error]: props.error }, { [styles.bottom]: props.borderBottom });
   return (
     <div className={styles.root}>
       <label>

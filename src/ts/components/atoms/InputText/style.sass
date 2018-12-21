@@ -1,4 +1,5 @@
 .root
+    width: 100%
     margin: 0
     padding: 0
 
@@ -15,6 +16,7 @@
 // 追加要素
 .input
     width: 100%
+
     & + .border
         display: block
         transition: 200ms
@@ -36,8 +38,16 @@
         outline-color: rgba(#6666CC, 0.8)
         opacity: 1
 
+.bottom
+    width: 100%
+
+    & + .border
+        outline-color: rgba(20, 20, 20, 0.3)
+        transform: scaleX(1)
+        opacity: 1
 
 .error
+    width: 100%
     color: red
 
     & + .border

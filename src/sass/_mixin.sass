@@ -1,0 +1,31 @@
+//----------------------------------------------
+// メディアクエリの書式を呼び出す
+//
+// [使用方法]
+// ブレークポイントに対応したmixinを使用する
+//
+// ＜例＞
+// PC表示
+// @include mediaquery-pc
+//   width: 100%
+//
+// スマートフォン表示
+// @include mediaquery-smartphone
+//   width: 100%
+//----------------------------------------------
+=breakpoint($width)
+    @media only screen and (min-width: $width)
+        @content
+
+=alphaBg
+    position: relative
+
+    &:after
+        content: ''
+        display: block
+        width: 100%
+        height: 100%
+        position: absolute
+        left: 0
+        top: 0
+        background: rgba(0, 0, 0, 0.15)

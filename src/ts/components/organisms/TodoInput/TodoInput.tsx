@@ -11,8 +11,12 @@ interface Props {
 const TodoInput = (props: Props) => {
   return (
     <div className={styles.root}>
-      <InputText onChange={props.onChangeInput} value={props.inputTodo} />
-      <Button onClick={props.addTodoEvent}>add</Button>
+      <div className={styles.inputContent}>
+        <InputText onChange={props.onChangeInput} value={props.inputTodo} borderBottom />
+      </div>
+      <div className={styles.button}>
+        <Button onClick={props.addTodoEvent}>add</Button>
+      </div>
     </div>
   );
 };
