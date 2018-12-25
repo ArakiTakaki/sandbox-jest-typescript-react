@@ -1,8 +1,12 @@
-import React, { FormEventHandler, MouseEventHandler } from 'react';
+import React from 'react';
 import styles from './style.sass';
 import InputText from '../../atoms/InputText/InputText';
 import Button from '../../atoms/Button/Button';
 
+export const enzymeIDContents = {
+  text: 'organisms_input_text',
+  submit: 'organisms_submit_button',
+};
 interface Props {
   addTodoEvent?(name: string): void;
 }
@@ -21,10 +25,17 @@ class TodoInput extends React.Component<Props, State> {
     return (
       <div className={styles.root}>
         <div className={styles.inputContent}>
-          <InputText onChange={this.onChange} value={this.state.inputTodo} borderBottom={true} />
+          <InputText
+            onChange={this.onChange}
+            value={this.state.inputTodo}
+            borderBottom={true}
+            testID={enzymeIDContents.text}
+          />
         </div>
         <div className={styles.button}>
-          <Button onClick={this.addTodoHandle}>add</Button>
+          <Button onClick={this.addTodoHandle} testID={enzymeIDContents.submit}>
+            add
+          </Button>
         </div>
       </div>
     );

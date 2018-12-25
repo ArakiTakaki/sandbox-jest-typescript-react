@@ -16,7 +16,7 @@ class TodoList extends React.Component<Props, State> {
     super(props);
     this.state = {};
     this.onDelete = this.onDelete.bind(this);
-    this.onCompleted = this.onCompleted.bind(this);
+    this.onCompletedEvent = this.onCompletedEvent.bind(this);
     this.onBlur = this.onBlur.bind(this);
   }
 
@@ -33,7 +33,7 @@ class TodoList extends React.Component<Props, State> {
                   onDelete={this.onDelete}
                   onBlur={this.onBlur}
                   idx={idx}
-                  onCompleted={this.onCompleted}
+                  onCompleted={this.onCompletedEvent}
                 >
                   {todo.name}
                 </TodoContent>
@@ -44,12 +44,12 @@ class TodoList extends React.Component<Props, State> {
       </div>
     );
   }
-  private onDelete(e: React.MouseEvent<HTMLInputElement>) {
+  public onDelete(e: React.MouseEvent<HTMLInputElement>) {
     const { onDeleteTodo } = this.props;
     if (onDeleteTodo == null) return;
     onDeleteTodo(Number(e.currentTarget.value));
   }
-  private onBlur(e: React.FocusEvent<HTMLInputElement>) {
+  public onBlur(e: React.FocusEvent<HTMLInputElement>) {
     const { onChangeName } = this.props;
     if (onChangeName == null) return;
     const {
@@ -58,7 +58,7 @@ class TodoList extends React.Component<Props, State> {
     } = e.currentTarget;
     onChangeName(Number(id), value);
   }
-  private onCompleted(e: React.ChangeEvent<HTMLInputElement>) {
+  public onCompletedEvent(e: React.ChangeEvent<HTMLInputElement>) {
     const { onCompleted } = this.props;
     if (onCompleted == null) return;
     onCompleted(Number(e.currentTarget.value));

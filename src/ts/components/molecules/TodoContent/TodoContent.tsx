@@ -30,5 +30,5 @@ const TodoContent = (props: Props) => {
   );
 };
 
-export default React.memo(TodoContent);
-// export default TodoContent;
+// export default React.memo(TodoContent);
+export default TodoContent;

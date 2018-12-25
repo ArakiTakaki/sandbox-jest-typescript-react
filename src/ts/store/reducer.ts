@@ -29,10 +29,7 @@ const reducer = (state: StateType = initialState, action: BaseAction): StateType
       const filteredTodoList = state.todo_list.filter(item => item.id !== payload.id);
       return { ...state, todo_list: filteredTodoList };
     case ActionTypes.TODO_EDIT:
-      return {
-        ...state,
-        todo_list: editByTodo(state.todo_list, payload),
-      };
+      return { ...state, todo_list: editByTodo(state.todo_list, payload) };
     default:
       return state;
   }
