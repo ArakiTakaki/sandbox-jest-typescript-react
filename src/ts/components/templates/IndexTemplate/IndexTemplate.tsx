@@ -17,6 +17,7 @@ class IndexTemplate extends React.Component<Props, State> {
     super(props);
   }
   public render() {
+    // TODO あとでなんとかする
     const { todoList, addTodoEvent, onChangeName, onCompleted, onDeleteTodo } = this.props;
     return (
       <div>
