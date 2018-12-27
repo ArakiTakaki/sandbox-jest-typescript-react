@@ -40,13 +40,13 @@ class TodoInput extends React.Component<Props, State> {
       </div>
     );
   }
-  private addTodoHandle() {
+  public addTodoHandle() {
     if (this.state.inputTodo === '') return;
     if (this.props.addTodoEvent == null) return;
     this.props.addTodoEvent(this.state.inputTodo);
     this.setState({ inputTodo: '' });
   }
-  private onChange(event: React.ChangeEvent<HTMLInputElement>) {
+  public onChange(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({ inputTodo: event.currentTarget.value });
   }
 }
