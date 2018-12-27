@@ -4,7 +4,7 @@ import styles from './style.sass';
 interface Props {
   label?: string;
   checked?: boolean;
-  onCheck?: React.MouseEventHandler;
+  onCheck?: React.ChangeEventHandler;
   value?: any;
 }
 const CheckBox = (props: Props) => {
@@ -15,7 +15,7 @@ const CheckBox = (props: Props) => {
           type={'checkbox'}
           className={styles.checkbox}
           checked={props.checked}
-          onClick={props.onCheck}
+          onChange={props.onCheck}
           value={props.value}
         />
         <div className={styles.icon} />

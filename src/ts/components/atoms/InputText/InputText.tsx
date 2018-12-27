@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import styles from './style';
+import styles from './styles.sass';
 
 interface Props {
   label?: string;
@@ -17,6 +17,7 @@ interface Props {
   disabled?: boolean;
   fullWidth?: boolean;
   borderBottom?: boolean;
+  testID?: string;
 }
 const InputText = (props: Props) => {
   const input = classNames(styles.input, { [styles.error]: props.error }, { [styles.bottom]: props.borderBottom });
@@ -37,6 +38,7 @@ const InputText = (props: Props) => {
           onBlur={props.onBlur}
           onFocus={props.onFocus}
           data-id={props.dataID}
+          data-test={props.testID}
         />
         <div className={styles.border} />
       </label>
