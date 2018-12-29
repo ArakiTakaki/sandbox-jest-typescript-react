@@ -22,21 +22,28 @@ test('COUNT TESTER', () => {
 /**
  * Todoまわりのテスト
  */
+// 編集したstateをデフォルトのstateとして扱う
 const editableState = { ...initialState, todo_list: [...TodoMock] };
+
+// 特定のTODOを追加する命令
 test('TODO ADD', () => {
   const newTodo: Todo = { id: 3, name: 'add todo test', completed: false };
   const addTodoState = reducer(editableState, Actions.todoAddAmount(newTodo));
   expect(addTodoState.todo_list).toContain(newTodo);
 });
 
+// 特定のTODOを編集する命令
 test('TODO EDIT', () => {
-  let editTodo: Todo = { id: 0, name: 'edit todo test', completed: true };
+  const editTodo: Todo = { id: 0, name: 'edit todo test', completed: true };
+  const prevTodo = editableState.todo_list[0];
   const editTodoState = reducer(editableState, Actions.todoEditAmount(editTodo));
   expect(editTodoState.todo_list).toContain(editTodo);
+  expect(editTodoState.todo_list).not.toContain(prevTodo);
 });
 
+// 特定のTODOを削除する命令
 test('TODO DELETE', () => {
-  let deleteTodo: Todo = editableState.todo_list[0];
+  const deleteTodo: Todo = editableState.todo_list[0];
   const deleteTodoState = reducer(editableState, Actions.todoDeleteAmount(deleteTodo));
   expect(deleteTodoState.todo_list).not.toContain(deleteTodo);
 });
