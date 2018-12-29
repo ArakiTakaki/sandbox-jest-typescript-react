@@ -11,7 +11,8 @@ export enum ActionTypes {
 }
 
 export interface BaseAction extends Action<string> {
-  payload: any;
+  type: string;
+  payload?: any;
 }
 
 interface TodoAction extends BaseAction {

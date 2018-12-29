@@ -2,9 +2,9 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
 import TodoList from '../../components/organisms/TodoList/TodoList';
-import MOCK from './TodoModel';
+import TodoMock from '../TodoMock';
 import TodoInput from '../../components/organisms/TodoInput/TodoInput';
-let mock = [...MOCK];
+let mock = [...TodoMock];
 
 const indexProps = {
   todoList: mock,

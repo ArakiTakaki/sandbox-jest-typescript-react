@@ -5,7 +5,7 @@ export interface StateType {
   todo_list: Todo[];
 }
 export const initialState: StateType = {
-  count: 1,
+  count: 0,
   name: 'GUEST',
   todo_list: [
     {

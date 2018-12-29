@@ -1,9 +1,9 @@
-import { Todo } from '../../store/model';
+import { Todo } from '../store/model';
 
-const MOCK: Todo[] = [
+const TodoMock: Todo[] = [
   { id: 0, name: 'sample', completed: false },
   { id: 1, name: 'test', completed: true },
   { id: 2, name: 'component', completed: false },
 ];
 
-export default MOCK;
+export default TodoMock;

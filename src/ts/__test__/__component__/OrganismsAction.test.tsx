@@ -4,7 +4,7 @@ import '../../setupTests';
 import { mount } from 'enzyme';
 import TodoInput from '../../components/organisms/TodoInput/TodoInput';
 import TodoList from '../../components/organisms/TodoList/TodoList';
-import MOCK from './TodoModel';
+import TodoMock from '../TodoMock';
 
 /**
  * TodoInput
@@ -28,7 +28,7 @@ test('Add Todo Event', () => {
  */
 const selectTodo = '1';
 const changeTodo = 'todo';
-let todo = [...MOCK];
+let todo = [...TodoMock];
 const todoContentProps = {
   todoList: todo,
   onDeleteTodo(idx: number): void {

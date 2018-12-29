@@ -3,12 +3,12 @@ import '../../setupTests';
 import * as React from 'react';
 import renderer from 'react-test-renderer';
 
-import MOCK from './TodoModel';
+import TodoMock from '../TodoMock';
 import { shallow, mount } from 'enzyme';
 import IndexTemplate from '../../components/templates/IndexTemplate/IndexTemplate';
 import { enzymeIDContents } from '../../components/organisms/TodoInput/TodoInput';
 
-let mock = [...MOCK];
+let mock = [...TodoMock];
 
 const props = {
   todoList: mock,
